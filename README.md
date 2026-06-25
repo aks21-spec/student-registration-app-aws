@@ -6,6 +6,11 @@ This project demonstrates the deployment of a Java-based Student Registration Ap
 
 The application was manually deployed by provisioning AWS infrastructure, configuring the application server, setting up the database, and connecting both layers securely.
 
+## Application Source
+
+Application Repository:
+https://github.com/shubhamkalsait/cloudblitz-student-app
+
 ## Architecture
 
 ```text
