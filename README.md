@@ -2,18 +2,20 @@
 
 ## Project Overview
 
-This project demonstrates the deployment of a Java-based Student Management Application on AWS using Amazon EC2 and MySQL.
+This project demonstrates the deployment of a Java-based Student Registration Application on AWS using Amazon EC2 and MySQL.
 
 The application was manually deployed by provisioning AWS infrastructure, configuring the application server, setting up the database, and connecting both layers securely.
 
 ## Architecture
 
 ```text
+Users
+  |
 Internet
-    |
-Application EC2
-    |
-MySQL EC2
+  |
+EC2 Instance (Student Registration App)
+  |
+MySQL Database
 ```
 
 ## AWS Services Used
@@ -30,64 +32,106 @@ MySQL EC2
 * MySQL
 * Maven
 * AWS EC2
+* Linux
+
+## Project Structure
+
+```text
+student-registration-app-aws/
+├── README.md
+├── architecture/
+├── deployment-guide/
+│   └── setup.md
+├── screenshots/
+└── scripts/
+    ├── install-java.sh
+    └── install-mysql.sh
+```
 
 ## Deployment Steps
 
-### Launch EC2 Instances
+### Step 1: Launch EC2 Instances
 
-* Application Server EC2
-* Database Server EC2
+* Create Application Server EC2 Instance
+* Create Database Server EC2 Instance
+* Configure Security Groups
+* Allow SSH access on Port 22
+* Allow Application access on Port 8080
 
-### Install Java
+### Step 2: Install Java
 
 ```bash
 sudo apt update
 sudo apt install openjdk-17-jdk -y
 ```
 
-### Install MySQL
+### Step 3: Install Maven
+
+```bash
+sudo apt install maven -y
+```
+
+### Step 4: Install MySQL
 
 ```bash
 sudo apt update
 sudo apt install mysql-server -y
 ```
 
-### Create Database
+### Step 5: Create Database
 
 ```sql
 CREATE DATABASE studentapp;
 ```
 
-### Clone Repository
+### Step 6: Clone Application Repository
 
 ```bash
 git clone https://github.com/shubhamkalsait/cloudblitz-student-app.git
 ```
 
-### Build Application
+### Step 7: Build Application
 
 ```bash
 mvn clean package
 ```
 
-### Run Application
+### Step 8: Run Application
 
 ```bash
 java -jar target/*.jar
 ```
 
+### Step 9: Verify Deployment
+
+Open the application in a browser using:
+
+```text
+http://<EC2-PUBLIC-IP>:8080
+```
+
+## Skills Demonstrated
+
+* AWS EC2 Provisioning
+* Linux Administration
+* MySQL Installation and Configuration
+* Java Application Deployment
+* Security Group Configuration
+* Cloud Networking Basics
+* Troubleshooting and Application Setup
+
 ## Key Learnings
 
-* AWS EC2 provisioning
-* Linux administration
-* MySQL configuration
-* Java application deployment
-* Security Group management
+* Understanding multi-tier architecture
+* Deploying applications on AWS EC2
+* Managing Linux servers
+* Configuring MySQL databases
+* Connecting application and database layers securely
 
 ## Future Improvements
 
-* Terraform automation
-* Docker containerization
-* Jenkins CI/CD
-* Kubernetes deployment
-* Monitoring with Prometheus and Grafana
+* Infrastructure Automation using Terraform
+* Containerization using Docker
+* CI/CD using Jenkins
+* Kubernetes Deployment
+* Monitoring using Prometheus and Grafana
