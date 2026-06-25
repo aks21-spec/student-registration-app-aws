@@ -135,3 +135,7 @@ http://<EC2-PUBLIC-IP>:8080
 * CI/CD using Jenkins
 * Kubernetes Deployment
 * Monitoring using Prometheus and Grafana
+
+## Screenshots
+
+Screenshots are currently unavailable because the original lab environment was decommissioned. The project documentation, deployment scripts, and setup guide have been preserved for reference.
